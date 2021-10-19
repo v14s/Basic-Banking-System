@@ -1,0 +1,31 @@
+<?php
+$con=mysqli_connect('localhost','root','','bank_system');
+
+if(isset($_POST['btn']))
+{
+	
+	
+	$name=$_POST['name'];
+	$email=$_POST['email'];
+	$contact_no=$_POST['password'];
+	$age=$_POST['confirm password'];
+	
+
+	
+	
+						$sql="INSERT INTO `registration_tbl`(`name`, `email`, `password`, `confirm password` ) VALUES ('$name','$email','$password','$confirm password')";
+						if(mysqli_query($con,$sql))
+						{
+							//echo"inserted...!";
+							echo "<script>alert('You Are Sucessfully Registered')</script>";
+							header("Location:register.php");
+						}
+						else
+						{
+							echo"error".mysqli_error($con);
+						}
+						
+						
+	
+}
+?>
